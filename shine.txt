@@ -3,3 +3,6 @@ shine for test
 has a mutable index called stage.
 
 tracks changes of files.
+
+for gaogen you can try it and you can xx ta!
+haha

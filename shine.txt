@@ -1,1 +1,3 @@
 shine for test
+
+has a mutable index called stage.

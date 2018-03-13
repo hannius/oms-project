@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf8
 '''
-@author: qitan
-@contact: qqing_lai@hotmail.com
 @file: views.py
 @time: 2017/3/30 15:28
 @desc:
@@ -395,7 +393,6 @@ def salt_key_import(request):
     '''
     if request.user.is_superuser:
         sapi = SaltAPI(url=settings.SALT_API['url'],username=settings.SALT_API['user'],password=settings.SALT_API['password'])
-	print sapi
         minions,minions_pre = sapi.list_all_key()
         alive = False
         ret_alive = sapi.salt_alive('*')
@@ -555,8 +552,7 @@ def salt_group_manage(request, id=None):
                         g.write("nodegroups:\n  %s: 'L@%s'\n"%(group.groupname,minions_str))
 
                 import subprocess
-                #subprocess.Popen('systemctl restart salt-master salt-api', shell=True)
-                subprocess.Popen('service salt-master salt-api restart', shell=True)
+                subprocess.Popen('systemctl restart salt-master salt-api', shell=True)
                 return redirect('group_list')
         else:
             form = SaltGroupForm(instance=group)

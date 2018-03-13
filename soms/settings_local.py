@@ -1,4 +1,4 @@
-SALT_API = {"url": "https://localhost:19091",
+SALT_API = {"url": "https://localhost:8000",
             "user": "sa",
-            "password": "pass"
+            "password": "qitan"
             }

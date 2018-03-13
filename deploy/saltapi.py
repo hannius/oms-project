@@ -1,15 +1,12 @@
 #!/usr/bin/env python
 # coding: utf8
 '''
-@author: qitan
-@contact: qqing_lai@hotmail.com
 @file: saltapi.py
 @time: 2017/3/30 15:29
 @desc:
 '''
 
-import urllib2,urllib,ssl
-ssl._create_default_https_context = ssl._create_unverified_context
+import urllib2,urllib
 
 try:
     import json
@@ -20,10 +17,8 @@ class SaltAPI(object):
     __token_id = ''
     def __init__(self,url,username,password):
         self.__url = url.rstrip('/')
-        self.__user = 'saltapi'
-        #self.__user = username
-        #self.__password = password
-        self.__password = 'K8PP_wy7c04e%@YxFjOe2kJ'
+        self.__user = username
+        self.__password = password
 
     def token_id(self):
         ''' user login and get token id '''
@@ -52,7 +47,6 @@ class SaltAPI(object):
         params = {'client': 'wheel', 'fun': 'key.list_all'}
         obj = urllib.urlencode(params)
         self.token_id()
-	#print self.token_id()
         content = self.postRequest(obj)
         minions = content['return'][0]['data']['return']['minions']
         minions_pre = content['return'][0]['data']['return']['minions_pre']
@@ -228,8 +222,7 @@ class SaltAPI(object):
         return ret
 
 def main():
-    sapi = SaltAPI(url='https://localhost:19091',username='saltapi',password='K8PP_wy7c04e%@YxFjOe2kJ')
-    #sapi = SaltAPI(url='http://localhost:19091',username='saltapi',password='K8PP_wy7c04e%@YxFjOe2kJ')
+    sapi = SaltAPI(url='https://127.0.0.1:8000',username='saltapi',password='password')
 
 if __name__ == '__main__':
     main()

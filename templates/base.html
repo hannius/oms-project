@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>HSB管理后台</title>
+        <title>OMS管理后台</title>
 
         <!-- Bootstrap -->
         <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -25,7 +25,7 @@
                 <div class="col-md-3 left_col">
                     <div class="left_col scroll-view">
                         <div class="navbar nav_title" style="border: 0;">
-                            <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>HSB运维平台</span></a>
+                            <a href="/" class="site_title"><i class="fa fa-paw"></i> <span>OMS运维平台</span></a>
                         </div>
 
                         <div class="clearfix"></div>
@@ -79,17 +79,6 @@
                                     </ul>
                                     </li>
                                     {% endif %}
- 				    {% if perms.deploy.view_publish %}
-				    <li><a><i class="fa fa-folder-open"></i> 发布管理 <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        {% if request.user.is_superuser %}
-					<li><a href="{% url 'publish_git' %}">前端发布</a></li>
-					<li><a href="{% url 'publish_rpc' %}">RPC发布</a></li>
-					<li><a href="{% url 'publish_cgi' %}">CGI发布</a></li>
-					{% endif %}
-				    </ul>
-                                    </li>
-                                    {% endif %}
                                     {% if perms.deploy.view_filemanage %}
                                     <li><a><i class="fa fa-folder-open"></i> 文件管理 <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
@@ -119,26 +108,6 @@
                                         <li><a href="{% url 'task_check' %}">任务查询</a></li>
                                         <li><a href="{% url 'task_running' %}">存活任务</a></li>
                                     </ul>
-                                    </li>
-                                    {% endif %}
-                                    {% if request.user.is_superuser %}
-                                    <li><a><i class="fa fa-cogs"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{% url 'user_list' %}">查看用户</a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu" style="display: none"><a href="{% url 'user_add' %}">新增用户</a>
-                                                </li>
-                                            </ul>
-                                    </li>
-                                    {% endif %}
-                                    {% if request.user.is_superuser %}
-                                    <li><a><i class="fa fa-cogs"></i> 用户管理 <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="{% url 'user_list' %}">查看用户</a>
-                                            <ul class="nav child_menu">
-                                                <li class="sub_menu" style="display: none"><a href="{% url 'user_add' %}">新增用户</a>
-                                                </li>
-                                            </ul>
                                     </li>
                                     {% endif %}
                                     {% if request.user.is_superuser %}
@@ -229,4 +198,24 @@
                     <!-- footer content -->
                     <footer>
                         <div class="pull-right">
-                            HSB运维平台 - Powered by <a href="https://imaojia.com" target="_blank">HSB</a>
+                            OMS运维平台 - Powered by <a href="https://leiyawu.com" target="_blank">爱猫家</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="/static/js/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="/static/js/bootstrap.min.js"></script>
+        {% block js %}
+        {% endblock %}
+        <!-- Custom Theme Scripts -->
+        <script src="/static/js/custom.min.js"></script>
+
+
+    </body>
+</html>

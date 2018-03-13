@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf8
 '''
-@author: qitan
-@contact: qqing_lai@hotmail.com
 @file: views.py.py
 @time: 2017/3/30 16:07
 @desc:
